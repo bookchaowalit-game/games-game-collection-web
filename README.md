@@ -1,5 +1,32 @@
 # Book Arcade
 
+## Archived twin decision — 2026-10-15 (BOO-197)
+
+This repository remains canonical. The former website-owner alias resolves to
+[`bookchaowalit-website/games-game-collection-web`](https://github.com/bookchaowalit-website/games-game-collection-web),
+which GitHub currently reports as archived. Compare its source commit
+[`df7ff62ffa6e7ad04c3556cfb837b3e3af32fd21`](https://github.com/bookchaowalit-website/games-game-collection-web/tree/df7ff62ffa6e7ad04c3556cfb837b3e3af32fd21)
+against this repository's pre-note commit
+`45f1db544ffe9c6f595b192823bb0ca0eee590e4` (17 versus 97 tracked files).
+The older 16-file inventory predates the twin's added `LICENSE`.
+
+| Twin-only content or difference | Decision / current port state |
+|---|---|
+| `DESIGN.md` (20 lines); cabinet-archive redesign `06822d683341523bb7fe24de2ae49161a33974fe`, dated 2026-08-23 | Retain as archived design reference; the file is absent here |
+| `app/page.tsx` (40 lines): third-party game library, search/status filters, add/eject and `game-collection-v2` localStorage | Not ported. This is a personal library tracker; canonical Book Arcade ships playable original games |
+| `app/globals.css`, `app/layout.tsx`: archive-paper/cabinet palette, DM Serif Display/DM Mono and cabinet composition | Not ported; keep the canonical arcade visual system |
+| `README.md`, `PRODUCT.md` | Distinct twin product/design narrative; preserve in archived history rather than replacing the canonical brief |
+| `app/more-projects/page.tsx` | Different sibling-directory presentation; no unique library capability to migrate |
+| `package.json`, `package-lock.json`, `tsconfig.json` | Configuration differences, not unique product content; no dependency/config copy |
+
+The other seven tracked files are byte-identical boilerplate/assets (including
+`LICENSE`), not evidence that the cabinet redesign was ported. **Decision:
+retain the archived twin as historical reference; migrate no unique feature in
+this step.** No content was invented in the twin, respecting canonical-twins
+registry rule 3. This note records the unique-content decision; it does not
+claim a new deployment, public-link migration, archive action or owner release
+approval. The twin was not edited or unarchived.
+
 A small arcade of games by [bookchaowalit](https://bookchaowalit.com), built in
 public. The first twelve playable games, **Neon Harvest**, **Signal Shift**,
 **Gridline**, **Midnight Market**, **Pulse Parade**, **Card Cascade**, **Last
