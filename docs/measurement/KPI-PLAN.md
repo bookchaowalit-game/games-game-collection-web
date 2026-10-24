@@ -1,6 +1,6 @@
 ---
 title: "Book Arcade — KPI and Instrumentation Plan"
-status: draft
+status: approved
 created: 2026-10-22
 updated: 2026-10-22
 description: "How the arcade would know visitors play its games, and what is missing to measure it."
@@ -14,7 +14,7 @@ template: architecture-docs templates/sdlc/kpi-and-instrumentation-plan.md
 | Field | Value |
 |---|---|
 | Product | bookchaowalit-game/games-game-collection-web (https://game-collection.bookchaowalit.com) |
-| Version / status | 0.1 / **draft** — no analytics installed; nothing measured yet |
+| Version / status | 0.1 / **approved** (2026-10-24) — no analytics installed; nothing measured yet |
 | Metric owner | Owner (bookchaowalit) |
 | AI maker | Claude Code (Wave 3 session, 2026-10-22) |
 | Analytics source of truth | none yet (decision needed, ADR-0005 default stack); Sentry for errors once a DSN is set |
@@ -56,3 +56,12 @@ Use a cookieless tool or wait for consent before sending events. No free text, n
 
 Not started: no events exist yet. Check 6 (baselines) is waived until the analytics tool is chosen; dated action:
 decide the tool by 2026-11-15.
+
+## Approval (2026-10-24)
+
+| Field | Value |
+|---|---|
+| Checker | independent Claude reviewer subagent (`solo:solo-reviewer`, Sonnet, read-only, no maker context) |
+| Approver | AI approval under the owner's process (approvals by the owner or AI with evidence; maker and checker are different agents). Recorded by Claude session oa-remainder on the owner's instruction "ทำที่เหลือให้หน่อย" (2026-10-24) |
+| Verdict | **approved** |
+| Evidence | No game_run_* or analytics code; Sentry wired (lib/sentry.ts, instrumentation*.ts); all events and KPIs marked planned. |
