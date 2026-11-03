@@ -18,10 +18,12 @@ flowchart LR
   Q -->|"bad code"| RB["Vercel rollback to previous Ready deployment"]
   Q -->|"bad code, fix forward"| FX["Fix on main, push, Vercel Git deploy"]
   Q -->|"Vercel project lost"| RE["Recreate project, link Git repo, set DSN, add domain"]
-  RB --> SM["Run deploy-smoke via workflow_dispatch"]
-  FX --> SM
+  RB --> SMR["Verify rollback: bash scripts/deploy-smoke.sh https://game-collection.bookchaowalit.com PROMOTED_SHA; CLI-era deploys have no commit marker, check pages only"]
+  FX --> SM["Run deploy-smoke via workflow_dispatch, expects main head"]
   RE --> SM
 ```
+
+หมายเหตุ: `deploy-smoke.yml` ตั้ง `EXPECTED_SHA` เป็น `github.event.deployment.sha || github.sha` — ถ้า dispatch เองหลัง rollback จะคาดหวัง head ของ main และ fail แม้ rollback สำเร็จ จึงต้องรัน script ตรงพร้อม SHA ของ deployment ที่ promote
 
 Sources: `RUNBOOK.md` (Rollback: "Redeploy previous container image / previous git tag" — generic stub), `.github/workflows/deploy-smoke.yml` (`workflow_dispatch`), `specs/001-shared-ci-sentry/spec.md` §3–4, `vercel ls` / `vercel env ls` (names only) 2026-11-03
 

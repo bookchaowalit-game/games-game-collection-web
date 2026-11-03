@@ -21,7 +21,7 @@ Sources: `.github/workflows/deploy-smoke.yml`, `.github/workflows/ci.yml`, `verc
 |---|---|---|---|
 | Deployment frequency | จำนวน Production deployments ใน `vercel ls` | **4 deploys** (2026-10-08, 10-13, 10-23, 10-24) ≈ **0.31 / week**; ส.ค.–ก.ย. 0 | มีเพียง 1 deploy (10-24) ที่ผ่าน Git integration |
 | Lead time for changes | committer time ของ SHA → GitHub deployment status `success` | **2.9 min** (n = 1: `1d9124c` 09:58:15Z → 10:01:08Z) | CLI deploys 3 ครั้งไม่มี SHA ผูกไว้ → วัดไม่ได้; sample เล็กเกินจะสรุป |
-| Change fail rate | (a) deploy-smoke failure / smoke-checked deploys; (b) CI failure บน main | (a) **0 / 1**; (b) **0 / 12** CI runs บน main = 0%; รวม **0 / 4 deploys ≈ 0%** | smoke เพิ่ง active 2026-10-24; deploy 3 ครั้งก่อนหน้าไม่ถูก smoke |
+| Change fail rate | (a) deploy-smoke failure / smoke-checked deploys; (b) CI failure บน main | (a) **0 / 1** smoke-checked deploy; ทั้ง window **unknown** (3 deploys ไม่ถูกตรวจ); (b) CI บน main 0 / 12 runs fail — ไม่ใช่ผล production เพราะ CI ไม่ gate deploy | smoke เพิ่ง active 2026-10-24; deploy 3 ครั้งก่อนหน้าไม่ถูก smoke |
 | Failed deployment recovery time | เวลาจาก failure ถึง green ถัดไป | **cannot compute** — ไม่มี failure ใน window | ไม่มี incident record |
 | Deployment rework rate | deploy ที่ทำเพื่อแก้ปัญหาที่ผู้ใช้เห็น | **cannot compute** — CLI deploys ไม่ผูก SHA; proxy ระดับ commit: subject ขึ้นต้น `fix`/`revert`/`hotfix` = **3 / 21 commits (14%)**, revert = 0 | ทั้ง 3 fix เป็น security/privacy fix ที่วางแผน (Next GHSA, Sentry scrub) ไม่ใช่ incident |
 
