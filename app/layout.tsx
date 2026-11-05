@@ -1,5 +1,6 @@
 import { SITE_URL } from "@/lib/site";
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { Geist, Geist_Mono, Press_Start_2P } from "next/font/google";
 import "./globals.css";
 
@@ -11,6 +12,15 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+// Thai fallback (ADR-0007 thai-font): Latin glyphs come from Geist, Thai from this face.
+// Self-hosted in app/fonts (see app/fonts/README.md), so no build-time Google Fonts request.
+const notoSansThai = localFont({
+  src: "./fonts/NotoSansThai-Variable.woff2",
+  weight: "100 900",
+  variable: "--font-noto-sans-thai",
+  display: "swap",
 });
 
 // Used sparingly — wordmark, eyebrows, and the primary CTA only.
@@ -67,11 +77,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Font variables go on <html>, not <body>: the app's @theme and :root values read them there.
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${pressStart.variable} antialiased`}
-      >
+    <html
+      lang="en"
+      className={`${geistSans.variable} ${geistMono.variable} ${notoSansThai.variable} ${pressStart.variable}`}
+    >
+      <body className="antialiased">
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         {children}
       </body>
     </html>

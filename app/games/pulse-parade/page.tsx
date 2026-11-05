@@ -12,12 +12,12 @@ export const metadata: Metadata = {
 
 export default function PulseParadePage() {
   return (
-    <main className="min-h-screen bg-paper text-ink">
+    <main id="main-content" className="min-h-screen bg-paper text-ink">
       <header className="border-b border-border">
         <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
           <Link
             href="/"
-            className="font-pixel text-[10px] tracking-widest text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+            className="inline-flex min-h-6 items-center font-pixel text-[10px] tracking-widest text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
           >
             BOOK ARCADE
           </Link>

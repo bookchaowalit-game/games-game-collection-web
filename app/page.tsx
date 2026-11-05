@@ -20,7 +20,7 @@ export default function Home() {
           <div className="flex items-center gap-5 text-sm text-ink-dim">
             <Link
               href="/more-projects"
-              className="rounded-sm transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="inline-flex min-h-6 items-center rounded-sm transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             >
               More projects
             </Link>
@@ -28,7 +28,7 @@ export default function Home() {
               href="https://github.com/bookchaowalit-game/bookchaowalit-game-collection-frontend"
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-sm transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="inline-flex min-h-6 items-center rounded-sm transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             >
               Source
             </a>
@@ -36,7 +36,7 @@ export default function Home() {
         </nav>
       </header>
 
-      <main className="mx-auto max-w-4xl px-6">
+      <main id="main-content" className="mx-auto max-w-4xl px-6">
         {/* ---------- hero ---------- */}
         <section className="py-16 sm:py-24">
           <p className="font-pixel text-[9px] tracking-[0.2em] text-accent">
@@ -75,7 +75,7 @@ export default function Home() {
             </a>
             <Link
               href="/more-projects"
-              className="rounded-sm text-sm font-medium text-ink-dim underline decoration-border underline-offset-4 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+              className="inline-flex min-h-6 items-center rounded-sm text-sm font-medium text-ink-dim underline decoration-border underline-offset-4 transition-colors hover:text-ink focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
             >
               See the rest of the portfolio →
             </Link>
@@ -153,7 +153,7 @@ export default function Home() {
           </p>
           <Link
             href="/more-projects"
-            className="mt-4 inline-flex items-center gap-1 rounded-sm text-sm font-medium text-accent transition-colors hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
+            className="mt-4 inline-flex min-h-6 items-center gap-1 rounded-sm text-sm font-medium text-accent transition-colors hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
           >
             Browse the full project directory →
           </Link>

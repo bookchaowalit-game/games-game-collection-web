@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function RelatedProjectsPage() {
   return (
-    <div className="min-h-screen bg-paper py-12 px-4">
+    <main id="main-content" className="min-h-screen bg-paper py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <h1 className="font-pixel text-2xl sm:text-3xl font-bold text-center mb-4 text-ink">
           More Projects
@@ -739,6 +739,6 @@ export default function RelatedProjectsPage() {
         </section>
         
       </div>
-    </div>
+    </main>
   );
 }

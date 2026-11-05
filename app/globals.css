@@ -1,4 +1,9 @@
+/* Order matters (design-floor README): Tailwind, then the vendored floor tokens in the base
+ * layer, then this app's values in app-theme.css. Never edit app/design-floor/*: the drift
+ * scan checks their hashes. */
 @import "tailwindcss";
+@import "./design-floor/tokens.css" layer(base);
+@import "./app-theme.css";
 
 /* Book Design System tokens — Game domain accent.
    See docs/systems/book-design-system.md in the solo-empire workspace. */
@@ -7,7 +12,8 @@
   --paper-raised: #ffffff;
   --ink: #16181c;
   --ink-dim: #575c60;
-  --ink-faint: #8a8f91;
+  /* Darkened from #8a8f91 (2.99:1 on paper) to pass 4.5:1 for small text (ADR-0007, contrast). */
+  --ink-faint: #63696c;
   --border: #dbded7;
   --border-soft: #e9ebe5;
 
@@ -15,8 +21,9 @@
   --accent-soft: #f2e4f7;
   --accent-ink: #ffffff;
 
-  --good: #1c7f58;
-  --warn: #a6791e;
+  /* Darkened so text on the 15% status tints still reaches 4.5:1 (ADR-0007, contrast). */
+  --good: #176b4c;
+  --warn: #7d5a12;
   --danger: #c4452a;
 }
 
@@ -30,6 +37,7 @@
   --color-border-soft: var(--border-soft);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-ink: var(--accent-ink);
   --color-good: var(--good);
   --color-warn: var(--warn);
   --color-danger: var(--danger);
@@ -38,13 +46,29 @@
   --font-pixel: var(--font-press-start);
 }
 
+/* Tailwind's default line-heights (1.5 body, down to 1 for big text) are below the Thai floor
+ * (body >= 1.6, headings >= 1.3), so every text size uses the Thai tokens (as in web-starter). */
+@theme {
+  --text-xs--line-height: var(--leading-thai);
+  --text-sm--line-height: var(--leading-thai);
+  --text-base--line-height: var(--leading-thai);
+  --text-lg--line-height: var(--leading-thai);
+  --text-xl--line-height: var(--leading-thai);
+  --text-2xl--line-height: var(--leading-thai-heading);
+  --text-3xl--line-height: var(--leading-thai-heading);
+  --text-4xl--line-height: var(--leading-thai-heading);
+  --text-5xl--line-height: var(--leading-thai-heading);
+  --text-6xl--line-height: var(--leading-thai-heading);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --paper: #15171b;
     --paper-raised: #1c1f24;
     --ink: #ecede9;
     --ink-dim: #a5aaac;
-    --ink-faint: #6c7274;
+    /* Lightened from #6c7274 (3.67:1 on paper) to pass 4.5:1. */
+    --ink-faint: #8f9497;
     --border: #2c3036;
     --border-soft: #23262b;
 
@@ -64,6 +88,36 @@ body {
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Preflight sets line-height 1.5 on html; text without a size utility inherits this. */
+@layer base {
+  body {
+    line-height: var(--leading-thai);
+  }
+}
+
+/* First Tab stop on every page: skips the header and jumps to <main id="main-content">
+ * (ADR-0007, skip-link, WCAG 2.4.1). Hidden until it receives focus. */
+@layer components {
+  .skip-link {
+    position: fixed;
+    z-index: 50;
+    top: 8px;
+    left: 8px;
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    color: var(--accent-ink);
+    background: var(--accent);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-decoration: none;
+    transform: translateY(-160%);
+  }
+
+  .skip-link:focus {
+    transform: translateY(0);
+  }
+}
+
 ::selection {
   background: var(--accent-soft);
 }
@@ -78,9 +132,10 @@ body {
 
 .game-hud {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem 1rem;
   padding: 0 0.25rem 1rem;
   color: var(--ink);
   font-family: var(--font-geist-mono), monospace;
@@ -102,6 +157,7 @@ body {
 
 .neon-board {
   position: relative;
+  width: 100%;
   aspect-ratio: 16 / 10;
   min-height: 20rem;
   overflow: hidden;
@@ -476,11 +532,10 @@ body {
   position: absolute;
   right: 0.35rem;
   bottom: 0.3rem;
-  color: var(--ink-faint);
+  color: var(--ink-dim);
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.55rem;
   font-variant-numeric: tabular-nums;
-  opacity: 0.75;
 }
 
 .signal-actions {
@@ -670,7 +725,6 @@ body {
   color: currentColor;
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.48rem;
-  opacity: 0.5;
 }
 
 .tactical-actions {
@@ -901,6 +955,9 @@ body {
 }
 
 .market-reset {
+  display: inline-flex;
+  min-height: 1.5rem;
+  align-items: center;
   color: var(--ink-dim);
   text-decoration: underline;
   text-decoration-color: var(--border);
@@ -2568,7 +2625,7 @@ body {
   }
 
   .foundry-blueprints {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .foundry-blueprint {

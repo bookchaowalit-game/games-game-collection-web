@@ -151,7 +151,7 @@ export default function PrismDriftGame() {
       <div
         aria-label="Prism Drift level"
         className="drift-board"
-        role="grid"
+        role="group"
         style={{ gridTemplateColumns: `repeat(${GRID_WIDTH}, minmax(0, 1fr))` }}
       >
         {Array.from({ length: GRID_WIDTH * GRID_HEIGHT }, (_, index) => {
@@ -174,7 +174,7 @@ export default function PrismDriftGame() {
               aria-label={isPlayer ? `Player on ${cellLabel(cell, collected)}` : cellLabel(cell, collected)}
               className={className}
               key={index}
-              role="gridcell"
+              role="img"
             >
               <span aria-hidden="true">{cellSymbol(cell, isPlayer, state.gravity, collected)}</span>
             </div>

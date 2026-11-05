@@ -1,0 +1,26 @@
+/*
+ * This app's visual world, in the design-floor token names (ADR-0007 layer 2).
+ * Values live in globals.css (--paper, --ink, --accent, ...); this file maps the
+ * floor names onto them, so a dark-mode switch in globals.css flows through unchanged.
+ * Record any change here in DESIGN.md "Tokens".
+ */
+:root {
+  --color-bg: var(--paper);
+  --color-surface: var(--paper-raised);
+  --color-fg: var(--ink);
+  --color-fg-muted: var(--ink-dim);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-ink);
+  --color-border: var(--border);
+  --color-focus: var(--accent);
+  --color-danger: var(--danger);
+  --color-success: var(--good);
+
+  /* next/font sets these on <html> (see app/layout.tsx). Latin first, Thai second. */
+  --font-sans: var(--font-geist-sans), var(--font-noto-sans-thai), Arial, Helvetica, sans-serif;
+
+  /* The floor's tokens.css sets these too; this app keeps its own Tailwind radii. */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}

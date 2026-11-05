@@ -1,0 +1,24 @@
+{
+  "floor": "1.0.0",
+  "public": true,
+  "target": { "serve": ["npm", "run", "start", "--", "-p", "3100"], "url": "http://localhost:3100", "timeoutSeconds": 120 },
+  "routes": [
+    "/",
+    "/more-projects",
+    "/games/card-cascade",
+    "/games/echo-chamber",
+    "/games/goal-line",
+    "/games/gridline",
+    "/games/lantern-route",
+    "/games/last-light",
+    "/games/midnight-market",
+    "/games/neon-harvest",
+    "/games/pocket-foundry",
+    "/games/prism-drift",
+    "/games/pulse-parade",
+    "/games/signal-shift",
+    { "path": "/no-such-page/", "status": 404 }
+  ],
+  "widths": [320, 375, 390, 768, 1440],
+  "waivers": []
+}
