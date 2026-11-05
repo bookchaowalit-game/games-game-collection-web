@@ -150,7 +150,11 @@ export default function NeonHarvestGame() {
         updateDirection();
       }
 
-      if ((key === "enter" || key === " ") && phaseRef.current !== "playing") {
+      // Let Enter/Space activate a focused link or form field (the skip link included).
+      const target = event.target as HTMLElement | null;
+      const onControl = target?.closest("a[href], input, select, textarea") != null;
+
+      if ((key === "enter" || key === " ") && !onControl && phaseRef.current !== "playing") {
         event.preventDefault();
         startRound();
       }

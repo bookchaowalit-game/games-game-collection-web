@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function LanternRoutePage() {
   return (
-    <main id="main-content" className="min-h-screen bg-paper text-ink">
+    <div className="min-h-screen bg-paper text-ink">
       <header className="border-b border-border">
         <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
           <Link
@@ -25,7 +25,7 @@ export default function LanternRoutePage() {
         </nav>
       </header>
 
-      <div className="mx-auto max-w-4xl px-6 pb-20">
+      <main id="main-content" className="mx-auto max-w-4xl px-6 pb-20">
         <section className="py-12 sm:py-16">
           <Link
             href="/"
@@ -61,7 +61,7 @@ export default function LanternRoutePage() {
             <p className="mt-2 text-ink">Game 011 adds branching narrative and multiple endings.</p>
           </div>
         </section>
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }
