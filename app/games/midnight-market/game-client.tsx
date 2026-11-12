@@ -28,7 +28,7 @@ function MarketSummary({ state }: { state: MarketState }) {
 
   return (
     <div className="market-summary">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {state.phase === "won" || state.phase === "lost" ? "SEASON COMPLETE" : "DAY COMPLETE"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">{report.dayName}</h2>
@@ -121,7 +121,7 @@ export default function MidnightMarketGame() {
         <>
           <div className="market-forecast">
             <div>
-              <p className="font-pixel text-[9px] tracking-widest text-accent">TONIGHT&apos;S READ</p>
+              <p className="font-pixel text-xs tracking-widest text-accent">TONIGHT&apos;S READ</p>
               <h2 className="mt-3 text-2xl font-semibold text-ink">{currentDay.name}</h2>
               <p className="mt-2 text-sm text-ink-faint">{currentDay.mood}</p>
             </div>
@@ -197,7 +197,7 @@ export default function MidnightMarketGame() {
         <>
           <MarketSummary state={state} />
           <div className={`market-result market-result--${state.phase}`}>
-            <p className="font-pixel text-[9px] tracking-widest text-accent">
+            <p className="font-pixel text-xs tracking-widest text-accent">
               {state.phase === "won" ? "SHOP IS A HIT" : "SHOP CLOSED"}
             </p>
             <p className="mt-3 text-sm leading-6 text-ink-dim">

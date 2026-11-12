@@ -139,7 +139,7 @@ export default function PulseParadeGame() {
 
       {!isPlaying && !isFinished && (
         <div className="pulse-intro">
-          <p className="font-pixel text-[9px] tracking-widest text-accent">SYNC THE CITY</p>
+          <p className="font-pixel text-xs tracking-widest text-accent">SYNC THE CITY</p>
           <h2 className="mt-3 text-2xl font-semibold text-ink">Catch the pulse.</h2>
           <p className="mt-3 max-w-md text-sm leading-6 text-ink-dim">
             Press A / S / D / F when a note reaches the line. Land eight notes to
@@ -203,7 +203,7 @@ export default function PulseParadeGame() {
 
       {isFinished && (
         <div className={`pulse-result pulse-result--${state.phase}`} role="status">
-          <p className="font-pixel text-[9px] tracking-widest text-accent">
+          <p className="font-pixel text-xs tracking-widest text-accent">
             {state.phase === "won" ? "SET COMPLETE" : "BEAT LOST"}
           </p>
           <p className="mt-3 text-sm leading-6 text-ink-dim">{outcomeCopy(state)}</p>

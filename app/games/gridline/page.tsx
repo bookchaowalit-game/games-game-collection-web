@@ -17,7 +17,7 @@ export default function GridlinePage() {
         <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
           <Link
             href="/"
-            className="inline-flex min-h-6 items-center font-pixel text-[10px] tracking-widest text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
+            className="inline-flex min-h-6 items-center font-pixel text-xs tracking-widest text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-4"
           >
             BOOK ARCADE
           </Link>
@@ -33,7 +33,7 @@ export default function GridlinePage() {
           >
             ← Back to the arcade
           </Link>
-          <p className="mt-10 font-pixel text-[9px] tracking-[0.2em] text-accent">
+          <p className="mt-10 font-pixel text-xs tracking-[0.2em] text-accent">
             THIRD PLAYABLE GAME
           </p>
           <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-6xl">

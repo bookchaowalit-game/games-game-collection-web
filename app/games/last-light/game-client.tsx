@@ -39,7 +39,7 @@ function NightSummary({ state }: { state: LastLightState }) {
 
   return (
     <div className="light-summary">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {state.phase === "won" || state.phase === "lost" ? "SEASON COMPLETE" : "NIGHT SURVIVED"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">{report.nightName}</h2>
@@ -68,7 +68,7 @@ function Outcome({ state, onReset }: { state: LastLightState; onReset: () => voi
 
   return (
     <div className={`light-result light-result--${won ? "won" : "lost"}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {won ? "BEACON FOUND" : "LIGHTS OUT"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">
@@ -129,7 +129,7 @@ export default function LastLightGame() {
         <>
           <div className="light-forecast">
             <div>
-              <p className="font-pixel text-[9px] tracking-widest text-accent">TONIGHT&apos;S FORECAST</p>
+              <p className="font-pixel text-xs tracking-widest text-accent">TONIGHT&apos;S FORECAST</p>
               <h2 className="mt-3 text-2xl font-semibold text-ink">{forecast.name}</h2>
               <p className="mt-2 text-sm text-ink-faint">{forecast.mood} · threat {forecast.threat}</p>
             </div>

@@ -57,7 +57,7 @@ function RunSummary({ state }: { state: PocketFoundryState }) {
 
   return (
     <div className={`foundry-summary${run.shipped ? " foundry-summary--shipped" : ""}`}>
-      <p className="font-pixel text-[9px] tracking-widest text-accent">CYCLE {run.cycle} / {CYCLE_LIMIT}</p>
+      <p className="font-pixel text-xs tracking-widest text-accent">CYCLE {run.cycle} / {CYCLE_LIMIT}</p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">{run.shipped ? "Shipment cleared." : "The line stalled."}</h2>
       <p className="mt-2 text-sm leading-6 text-ink-dim">{run.message}</p>
       <div className="foundry-report-grid">
@@ -74,7 +74,7 @@ function Outcome({ state, onReset }: { state: PocketFoundryState; onReset: () =>
 
   return (
     <div className={`foundry-result foundry-result--${won ? "won" : "lost"}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {won ? "FACTORY ONLINE" : "FACTORY OFFLINE"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">
@@ -142,7 +142,7 @@ export default function PocketFoundryGame() {
         <>
           <div className="foundry-brief">
             <div>
-              <p className="font-pixel text-[9px] tracking-widest text-accent">SHAPE THE LINE</p>
+              <p className="font-pixel text-xs tracking-widest text-accent">SHAPE THE LINE</p>
               <h2 className="mt-3 text-2xl font-semibold text-ink">Build a working chain</h2>
               <p className="mt-2 max-w-xl text-sm leading-6 text-ink-dim">{state.message}</p>
             </div>

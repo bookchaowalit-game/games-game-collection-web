@@ -179,7 +179,7 @@ export default function GridlineGame() {
 
       {state.phase !== "playing" && (
         <div className={`tactical-result tactical-result--${state.phase}`} role="status">
-          <p className="font-pixel text-[9px] tracking-widest text-accent">
+          <p className="font-pixel text-xs tracking-widest text-accent">
             {state.phase === "won" ? "ROUTE COMPLETE" : "SIGNAL LOST"}
           </p>
           <p className="mt-3 text-sm text-ink-dim">{outcomeCopy(state)}</p>

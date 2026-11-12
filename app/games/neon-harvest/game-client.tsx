@@ -234,7 +234,7 @@ export default function NeonHarvestGame() {
 
         {phase !== "playing" && (
           <div className="neon-overlay">
-            <p className="font-pixel text-[10px] tracking-widest text-accent">
+            <p className="font-pixel text-xs tracking-widest text-accent">
               {phase === "ready" ? "READY?" : phase === "won" ? "ROUND CLEAR" : "ROUND OVER"}
             </p>
             <p className="mt-4 max-w-xs text-center text-sm leading-6 text-white/75">

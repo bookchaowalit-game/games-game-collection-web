@@ -147,7 +147,7 @@ export default function SignalShiftGame() {
 
       {solved && (
         <div className="signal-win" role="status">
-          <p className="font-pixel text-[9px] tracking-widest text-accent">NETWORK ONLINE</p>
+          <p className="font-pixel text-xs tracking-widest text-accent">NETWORK ONLINE</p>
           <p className="mt-3 text-sm text-ink-dim">
             Complete circuit in {moves} moves. Reset and chase a cleaner solve.
           </p>

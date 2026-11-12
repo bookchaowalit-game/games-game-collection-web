@@ -35,7 +35,7 @@ function ShotSummary({ state }: { state: GoalLineState }) {
 
   return (
     <div className={`goal-summary goal-summary--${shot.goal ? "goal" : "save"}`}>
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         SHOT {shot.round + 1} / {SHOT_COUNT}
       </p>
       <h2 className="mt-3 text-3xl font-semibold text-ink">{shot.goal ? "GOAL!" : "SAVED!"}</h2>
@@ -54,7 +54,7 @@ function Outcome({ state, onReset }: { state: GoalLineState; onReset: () => void
 
   return (
     <div className={`goal-result goal-result--${won ? "won" : "lost"}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {won ? "FINAL WHISTLE" : "SHOOTOUT LOST"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">
@@ -117,7 +117,7 @@ export default function GoalLineGame() {
         <>
           <div className="goal-forecast">
             <div>
-              <p className="font-pixel text-[9px] tracking-widest text-accent">READ THE KEEPER</p>
+              <p className="font-pixel text-xs tracking-widest text-accent">READ THE KEEPER</p>
               <h2 className="mt-3 text-2xl font-semibold text-ink">Penalty {state.round + 1}</h2>
               <p className="mt-2 text-sm text-ink-faint">{forecast.crowd}</p>
             </div>

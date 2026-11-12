@@ -14,7 +14,7 @@ export default function Home() {
       {/* ---------- nav ---------- */}
       <header className="border-b border-border">
         <nav className="mx-auto flex max-w-4xl items-center justify-between px-6 py-5">
-          <span className="font-pixel text-[10px] tracking-widest text-accent">
+          <span className="font-pixel text-xs tracking-widest text-accent">
             BOOK ARCADE
           </span>
           <div className="flex items-center gap-5 text-sm text-ink-dim">
@@ -39,7 +39,7 @@ export default function Home() {
       <main id="main-content" className="mx-auto max-w-4xl px-6">
         {/* ---------- hero ---------- */}
         <section className="py-16 sm:py-24">
-          <p className="font-pixel text-[9px] tracking-[0.2em] text-accent">
+          <p className="font-pixel text-xs tracking-[0.2em] text-accent">
             BUILD IN PUBLIC
           </p>
           <h1 className="mt-4 max-w-2xl text-4xl font-bold tracking-tight text-balance sm:text-5xl">
@@ -56,7 +56,7 @@ export default function Home() {
               <Link
                 key={game.slug}
                 href={gamePath(game.slug)}
-                className={`font-pixel inline-flex items-center gap-2 rounded-md px-5 py-4 text-[10px] tracking-wider shadow-sm transition-transform motion-safe:active:translate-y-0.5 motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                className={`font-pixel inline-flex items-center gap-2 rounded-md px-5 py-4 text-xs tracking-wider shadow-sm transition-transform motion-safe:active:translate-y-0.5 motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                   i === 0
                     ? "bg-accent text-accent-ink"
                     : "border border-accent/40 bg-paper-raised text-accent"
@@ -69,7 +69,7 @@ export default function Home() {
               href="https://github.com/bookchaowalit-game/bookchaowalit-game-collection-frontend"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-pixel inline-flex items-center gap-2 rounded-md bg-accent px-5 py-4 text-[10px] tracking-wider text-accent-ink shadow-sm transition-transform motion-safe:active:translate-y-0.5 motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="font-pixel inline-flex items-center gap-2 rounded-md bg-accent px-5 py-4 text-xs tracking-wider text-accent-ink shadow-sm transition-transform motion-safe:active:translate-y-0.5 motion-safe:hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             >
               ▶ FOLLOW THE BUILD
             </a>
@@ -102,7 +102,7 @@ export default function Home() {
                   <div className="flex flex-wrap items-center gap-2">
                     <h3 className="font-semibold text-ink">{stage.label}</h3>
                     <span
-                      className={`rounded-full border px-2 py-0.5 font-mono text-[10px] tracking-wide ${STATUS_STYLE[stage.status]}`}
+                      className={`rounded-full border px-2 py-0.5 font-mono text-xs tracking-wide ${STATUS_STYLE[stage.status]}`}
                     >
                       {STATUS_LABEL[stage.status]}
                     </span>
@@ -123,7 +123,7 @@ export default function Home() {
               >
                 <div className="flex flex-wrap items-start justify-between gap-4">
                   <div>
-                    <p className="font-pixel text-[9px] tracking-widest text-accent">
+                    <p className="font-pixel text-xs tracking-widest text-accent">
                       {i === 0 ? "NOW PLAYING" : `GAME ${String(game.number).padStart(3, "0")}`}
                     </p>
                     <h3 className="mt-3 text-xl font-semibold text-ink">{game.title}</h3>
@@ -170,6 +170,11 @@ export default function Home() {
             bookchaowalit.com
           </a>
         </p>
+        <nav aria-label="Site" className="mx-auto mt-2 flex max-w-4xl flex-wrap gap-x-5 px-6 text-xs text-ink-faint">
+          <a href="https://bookchaowalit.com/privacy" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:text-ink">Privacy</a>
+          <a href="https://monitor.bookchaowalit.com/" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:text-ink">Status</a>
+          <a href="mailto:bookchaowalit.work@gmail.com" className="inline-flex min-h-11 items-center underline decoration-border underline-offset-4 hover:text-ink">Contact</a>
+        </nav>
       </footer>
     </div>
   );

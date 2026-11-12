@@ -47,7 +47,7 @@ function Outcome({ state, onReset }: { state: LanternState; onReset: () => void 
 
   return (
     <div className={`lantern-result lantern-result--${won ? "won" : "lost"}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {won ? "A STORY COMPLETED" : "THE ROAD ENDS"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">{title}</h2>
@@ -101,7 +101,7 @@ export default function LanternRouteGame() {
       {isPlaying ? (
         <>
           <div className="lantern-story">
-            <p className="font-pixel text-[9px] tracking-widest text-accent">{scene.eyebrow}</p>
+            <p className="font-pixel text-xs tracking-widest text-accent">{scene.eyebrow}</p>
             <h2 className="mt-3 text-3xl font-semibold text-ink">{scene.title}</h2>
             <p className="mt-4 max-w-2xl text-base leading-8 text-ink-dim">{scene.text}</p>
             <p className="lantern-message">{state.message}</p>

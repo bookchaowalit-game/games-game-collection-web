@@ -54,7 +54,7 @@ function Outcome({ state, onReset }: { state: DriftState; onReset: () => void })
 
   return (
     <div className={`drift-result drift-result--${won ? "won" : "lost"}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {won ? "PRISM ARRAY ALIGNED" : "DRIFT INTERRUPTED"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">
@@ -138,7 +138,7 @@ export default function PrismDriftGame() {
 
       <div className="drift-brief">
         <div>
-          <p className="font-pixel text-[9px] tracking-widest text-accent">SHIFT THE WORLD</p>
+          <p className="font-pixel text-xs tracking-widest text-accent">SHIFT THE WORLD</p>
           <h2 className="mt-3 text-2xl font-semibold text-ink">Find the clean line</h2>
           <p className="mt-2 max-w-xl text-sm leading-6 text-ink-dim">{state.message}</p>
         </div>

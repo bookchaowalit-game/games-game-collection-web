@@ -33,7 +33,7 @@ function Observation({ state }: { state: EchoState }) {
 
   return (
     <div className={`echo-observation${observation.decisive ? " echo-observation--decisive" : ""}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         NEW RECORDING · {roomLabel(observation.roomId)}
       </p>
       <h2 className="mt-3 text-xl font-semibold text-ink">{evidenceLabel(observation.kind)}</h2>
@@ -47,7 +47,7 @@ function Outcome({ state, onReset }: { state: EchoState; onReset: () => void }) 
 
   return (
     <div className={`echo-result echo-result--${won ? "won" : "lost"}`} role="status">
-      <p className="font-pixel text-[9px] tracking-widest text-accent">
+      <p className="font-pixel text-xs tracking-widest text-accent">
         {won ? "SIGNAL LOCATED" : "SIGNAL LOST"}
       </p>
       <h2 className="mt-3 text-2xl font-semibold text-ink">
@@ -111,7 +111,7 @@ export default function EchoChamberGame() {
         <>
           <div className="echo-atmosphere">
             <div>
-              <p className="font-pixel text-[9px] tracking-widest text-accent">THE HOUSE IS LISTENING</p>
+              <p className="font-pixel text-xs tracking-widest text-accent">THE HOUSE IS LISTENING</p>
               <h2 className="mt-3 text-2xl font-semibold text-ink">{currentRoom.name}</h2>
               <p className="mt-2 max-w-xl text-sm leading-6 text-ink-dim">{currentRoom.description}</p>
             </div>
