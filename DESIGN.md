@@ -35,3 +35,21 @@ Waivers: none.
 - Skip link: the first Tab stop on every route goes to `#main-content`, the `<main>` of each page.
 - Reduced motion: the game pages and the home page honour `prefers-reduced-motion` through `motion-reduce` and `motion-safe` classes and the `@media (prefers-reduced-motion: reduce)` blocks in `app/globals.css`. The `reduced-motion` floor rule passes on every route with no waiver.
 - Game routes need no waiver: no route has animation that the floor flags.
+
+
+---
+
+## Storybook
+
+Storybook 10 (`@storybook/nextjs-vite`) shows this design system with the app's real CSS, tokens and fonts.
+
+```bash
+npm run storybook        # http://localhost:6006
+npm run build-storybook  # static build in storybook-static/ (CI: .github/workflows/storybook.yml)
+```
+
+- **Foundations/Tokens** reads every CSS custom property the app defines at runtime, so it never drifts from the code.
+- **Design/DESIGN.md** renders this file.
+- **Components/**, **Sections/** and **Pages/** show the UI with mock data only (no network, analytics off).
+- Toolbar: locale, theme (light / dark, when the app has a dark theme), viewports 320 / 375 / 768 / 1440. The a11y panel runs axe (WCAG 2.2 AA).
+- Rule: a new shared component or page section ships with a story in `stories/`.
