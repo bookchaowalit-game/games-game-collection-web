@@ -21,7 +21,7 @@ export default function Home() {
 
       <section id="games" aria-labelledby="games-title">
         <h2 id="games-title" className="ga-title">All games</h2>
-        <ul className="rs-list ga-cards" data-layout="cards">
+        <ul className="rs-list ga-cards" role="list" data-layout="cards">
           {GAMES.map((game) => (
             <li key={game.slug}>
               <article className="rs-entry">
@@ -39,7 +39,7 @@ export default function Home() {
       <section aria-labelledby="live-title">
         <h2 id="live-title" className="ga-title">What is live right now</h2>
         <p className="ga-lede">{liveSummary()}</p>
-        <ol className="rs-list ga-stages">
+        <ol className="rs-list ga-stages" role="list">
           {STAGES.map((stage, i) => (
             <li key={stage.label}>
               <article className="rs-entry">

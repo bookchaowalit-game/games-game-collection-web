@@ -3164,7 +3164,3 @@ body {
 .ga-stages h3 { font-size: 19px; }
 .ga-title { margin: 0 0 16px; font-size: 24px; font-weight: 700; letter-spacing: -.01em; }
 .ga-lede { max-width: var(--rs-measure); margin: -4px 0 12px; color: var(--rs-muted); font-size: 17px; line-height: var(--rs-leading); }
-/* Game cards: the focus ring sits on the title link itself (the design-floor check reads the focused
-   element), instead of the shell's ring around the whole card. */
-.ga-cards .rs-entry:has(.rs-entry-link:focus-visible) { outline: none; }
-.ga-cards .rs-entry:has(.rs-entry-link:focus-visible) .rs-entry-link { outline: 3px solid var(--rs-focus); outline-offset: 2px; border-radius: 4px; }
