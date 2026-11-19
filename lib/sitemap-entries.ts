@@ -11,7 +11,6 @@ export function buildSitemapEntries(siteUrl: string): SitemapEntry[] {
   const base = siteUrl.replace(/\/+$/, "");
   return [
     { url: base, changeFrequency: "daily", priority: 1 },
-    { url: `${base}/more-projects`, changeFrequency: "weekly", priority: 0.8 },
     ...GAMES.map((game) => ({
       url: `${base}${gamePath(game.slug)}`,
       changeFrequency: "monthly" as const,

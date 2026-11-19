@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { describe, it } from "node:test";
+import { describe, it } from "vitest";
 import { GAME_COUNT } from "../lib/games.ts";
 import { RPC_ERRORS, handleRpc } from "../lib/mcp.ts";
 

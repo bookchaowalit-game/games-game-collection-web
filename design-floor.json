@@ -4,7 +4,6 @@
   "target": { "serve": ["npm", "run", "start", "--", "-p", "3100"], "url": "http://localhost:3100", "timeoutSeconds": 120 },
   "routes": [
     "/",
-    "/more-projects",
     "/games/card-cascade",
     "/games/echo-chamber",
     "/games/goal-line",

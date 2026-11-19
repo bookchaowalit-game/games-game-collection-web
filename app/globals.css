@@ -4,6 +4,8 @@
 @import "tailwindcss";
 @import "./design-floor/tokens.css" layer(base);
 @import "./app-theme.css";
+/* Shared Reader shell (READER.md): the page frame. The game panels below keep the arcade tokens. */
+@import "./reader-shell.css";
 
 /* Book Design System tokens — Game domain accent.
    See docs/systems/book-design-system.md in the solo-empire workspace. */
@@ -82,8 +84,9 @@
   }
 }
 
+html, body { margin: 0; background: var(--rs-bg); }
+
 body {
-  background: var(--paper);
   color: var(--ink);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
@@ -3150,3 +3153,18 @@ body {
     transition: none;
   }
 }
+
+/* Reader shell pages (2026-11-19): game cards with their title card image, the game panel and facts. */
+.ga-cards .rs-entry { gap: 8px; }
+.ga-thumb { order: 0; display: block; width: 100%; height: auto; aspect-ratio: 1200 / 630; border-radius: 12px; background: var(--rs-tag-bg); object-fit: cover; }
+.ga-game { margin-top: 32px; }
+.ga-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 16px 24px; margin: 40px 0 0; padding: 24px 0 0; border-top: 1px solid var(--rs-line); }
+.ga-facts dt { color: var(--rs-muted); font-size: 14px; font-weight: 600; }
+.ga-facts dd { margin: 4px 0 0; color: var(--rs-fg); font-size: 16px; line-height: 1.5; }
+.ga-stages h3 { font-size: 19px; }
+.ga-title { margin: 0 0 16px; font-size: 24px; font-weight: 700; letter-spacing: -.01em; }
+.ga-lede { max-width: var(--rs-measure); margin: -4px 0 12px; color: var(--rs-muted); font-size: 17px; line-height: var(--rs-leading); }
+/* Game cards: the focus ring sits on the title link itself (the design-floor check reads the focused
+   element), instead of the shell's ring around the whole card. */
+.ga-cards .rs-entry:has(.rs-entry-link:focus-visible) { outline: none; }
+.ga-cards .rs-entry:has(.rs-entry-link:focus-visible) .rs-entry-link { outline: 3px solid var(--rs-focus); outline-offset: 2px; border-radius: 4px; }

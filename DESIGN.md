@@ -1,6 +1,10 @@
 # DESIGN
 
-Floor: [ADR-0007 design floor 1.0.0](https://github.com/bookchaowalit/architecture-docs/blob/main/design-floor/FLOOR.md), checked by `design-floor.json` (15 routes, widths 320 / 375 / 390 / 768 / 1440) in the `design-floor` CI job.
+Page frame (2026-11-19): the shared Reader shell (`app/reader-shell.css`, `components/reader-shell.tsx`,
+`READER.md`) for the top bar, heads, game cards, roadmap, footer and 404, in Geist. The tokens below
+still style the game panels inside each game page.
+
+Floor: [ADR-0007 design floor 1.0.0](https://github.com/bookchaowalit/architecture-docs/blob/main/design-floor/FLOOR.md), checked by `design-floor.json` (14 routes, widths 320 / 375 / 390 / 768 / 1440) in the `design-floor` CI job.
 
 ## Tokens
 

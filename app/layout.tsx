@@ -23,7 +23,7 @@ const notoSansThai = localFont({
   display: "swap",
 });
 
-// Used sparingly — wordmark, eyebrows, and the primary CTA only.
+// Pixel face: only inside the game panels (scores, labels). The page frame is the Reader shell in Geist.
 // Never for paragraph text; an 8-bit face is illegible at body size.
 const pressStart = Press_Start_2P({
   variable: "--font-press-start",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://bookchaowalit.com",
+    url: "/",
     title: "Book Arcade — games, built in public",
     description: "A small arcade of games by bookchaowalit, built in public.",
     siteName: "Book Arcade",
@@ -84,9 +84,6 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} ${notoSansThai.variable} ${pressStart.variable}`}
     >
       <body className="antialiased">
-        <a className="skip-link" href="#main-content">
-          Skip to main content
-        </a>
         {children}
       </body>
     </html>

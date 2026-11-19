@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
-import { describe, it } from "node:test";
+import { describe, it } from "vitest";
 import { GAMES } from "../lib/games.ts";
 import {
   STAGES,
@@ -21,8 +21,8 @@ describe("game collection roadmap honesty", () => {
   });
 
   it("exposes honest status labels", () => {
-    assert.equal(STATUS_LABEL.done, "SHIPPED");
-    assert.equal(STATUS_LABEL.planned, "PLANNED");
+    assert.equal(STATUS_LABEL.done, "Shipped");
+    assert.equal(STATUS_LABEL.planned, "Planned");
     assert.match(honestyCopy(), /Twelve games are live/i);
   });
 });
@@ -42,10 +42,11 @@ describe("roadmap copy follows the catalog size", () => {
     assert.equal(listTitles(["A", "B", "C"]), "A, B, and C");
   });
 
-  it("names every shipped game in the roadmap detail", () => {
+  it("names the game count in the roadmap, not every title (the cards list them)", () => {
     const playable = STAGES.find((s) => /playable game/i.test(s.label));
+    assert.equal(playable?.label, `${honestyCopy().split(" ")[0]} playable games`);
     for (const game of GAMES) {
-      assert.ok(playable?.detail.includes(game.title), `${game.title} missing from roadmap`);
+      assert.ok(!playable?.detail.includes(game.title), `${game.title} should not be repeated in the roadmap`);
     }
     assert.match(liveSummary(), new RegExp(`^${honestyCopy().split(" ")[0]} games are shipped`));
   });

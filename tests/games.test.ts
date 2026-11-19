@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { describe, it } from "node:test";
+import { describe, it } from "vitest";
 import { GAMES, GAME_COUNT, findGame, gameCounterLabel } from "../lib/games.ts";
 import { honestyCopy } from "../lib/roadmap.ts";
 import { buildSitemapEntries } from "../lib/sitemap-entries.ts";
@@ -37,10 +37,10 @@ describe("game catalog", () => {
     assert.doesNotMatch(home, /href="\/games\//);
   });
 
-  it("gives every game page its own counter and canonical path", () => {
+  it("gives every game page its own slug and canonical path", () => {
     for (const game of GAMES) {
       const page = readFileSync(join(root, "app/games", game.slug, "page.tsx"), "utf8");
-      assert.ok(page.includes(`gameCounterLabel(${game.number})`), `${game.slug} counter`);
+      assert.ok(page.includes(`slug="${game.slug}"`), `${game.slug} slug`);
       assert.ok(page.includes(`canonical: gamePath("${game.slug}")`), `${game.slug} canonical`);
     }
   });
@@ -62,11 +62,11 @@ describe("game catalog", () => {
 });
 
 describe("sitemap", () => {
-  it("lists home, more-projects and every game once", () => {
+  it("lists home and every game once (the retired /more-projects is gone)", () => {
     const entries = buildSitemapEntries("https://example.test/");
     const urls = entries.map((e) => e.url);
     assert.equal(urls[0], "https://example.test");
-    assert.ok(urls.includes("https://example.test/more-projects"));
+    assert.ok(!urls.includes("https://example.test/more-projects"));
     for (const game of GAMES) {
       assert.ok(urls.includes(`https://example.test/games/${game.slug}`), game.slug);
     }

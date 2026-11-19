@@ -21,6 +21,7 @@ jobs:
     with:
       node-version: "22"
       require-tests: true
+      coverage-threshold: "92"
       build-command: npm run build
 
   security:

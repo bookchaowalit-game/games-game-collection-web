@@ -1,4 +1,4 @@
-import { GAMES, GAME_COUNT } from "./games.ts";
+import { GAME_COUNT } from "./games.ts";
 
 export type StageStatus = "done" | "progress" | "planned";
 
@@ -53,8 +53,8 @@ export const STAGES: Stage[] = [
     status: "done",
   },
   {
-    label: "First playable game",
-    detail: `${listTitles(GAMES.map((game) => game.title))} — ${countWord(GAME_COUNT)} small ${GAME_COUNT === 1 ? "game" : "games"} shipped end-to-end.`,
+    label: `${capitalize(countWord(GAME_COUNT))} playable ${GAME_COUNT === 1 ? "game" : "games"}`,
+    detail: `${capitalize(countWord(GAME_COUNT))} small ${GAME_COUNT === 1 ? "game" : "games"} shipped end to end; each one is in the list above.`,
     status: "done",
   },
   {
@@ -65,9 +65,9 @@ export const STAGES: Stage[] = [
 ];
 
 export const STATUS_LABEL: Record<StageStatus, string> = {
-  done: "SHIPPED",
-  progress: "IN PROGRESS",
-  planned: "PLANNED",
+  done: "Shipped",
+  progress: "In progress",
+  planned: "Planned",
 };
 
 /** True only when at least one playable game stage is marked done. */

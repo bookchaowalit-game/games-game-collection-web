@@ -61,11 +61,14 @@ app/
 ├── games/pocket-foundry/  # tenth playable automation game
 ├── games/lantern-route/   # eleventh playable interactive narrative game
 ├── games/prism-drift/     # twelfth playable gravity platformer game
-├── not-found.tsx       # styled 404
-├── more-projects/      # directory of sibling bookchaowalit-* products
+├── not-found.tsx       # 404 in the same Reader frame
+├── reader-shell.css    # shared Reader shell (copied byte for byte, see READER.md)
 ├── api/mcp/             # read-only MCP endpoint: `list_games` tool
 ├── sitemap.ts           # generated from lib/games.ts
-└── globals.css          # Book Design System tokens (Game domain accent)
+└── globals.css          # Reader shell import, plus the arcade tokens the game panels use
+components/
+├── reader-shell.tsx     # shared Reader shell pieces
+└── arcade.tsx           # ArcadeFrame (top bar + footer) and GamePage (head, game, facts, previous/next)
 lib/
 ├── games.ts             # game catalog (source of truth for sitemap, headers, MCP)
 ├── <game>.ts            # pure rules for each game, unit-tested in tests/
@@ -78,15 +81,17 @@ lib/
 npm run lint && npm run typecheck && npm test && npm run build
 ```
 
-CI (`.github/workflows/ci.yml`) runs the same four commands. Tests use the
-Node test runner with type stripping (Node 22+). Adding a game means adding
-it to `lib/games.ts`; `tests/games.test.ts` fails until the route folder,
-homepage link, header counter and canonical path all exist.
+CI (`.github/workflows/ci.yml`) runs the same four commands. Tests run in Vitest with a 92% line gate
+(the canvas game clients are excluded; their rules in `lib/<game>.ts` are covered). Adding a game means
+adding it to `lib/games.ts`; `tests/games.test.ts` fails until the route folder, social card, page slug
+and canonical path all exist. `/more-projects` redirects permanently (308) to https://bookchaowalit.com/.
 
 Design tokens follow the shared Book Design System doc (solo-empire workspace: docs/systems/book-design-system.md — not part of this repo) —
-ink/paper neutrals plus one domain accent (`Game`, magenta-purple). The
-`Press Start 2P` pixel face is used only for the wordmark, eyebrows, and the
-primary CTA; body text stays on Geist Sans for legibility.
+ink/paper neutrals plus one domain accent (`Game`, magenta-purple). Since 2026-11-19 the page frame
+(home, game page heads, 404) uses the shared Reader shell in Geist; the `Press Start 2P` pixel face
+and the arcade tokens stay only inside the game panels. The home page has one filled CTA (Play Neon
+Harvest), plain links to the game list and the source, and one card per game with its generated title
+card (`/games/<slug>/opengraph-image`) as a lazy-loaded thumbnail.
 
 ## Status
 
