@@ -3165,13 +3165,16 @@ body {
 .ga-title { margin: 0 0 16px; font-size: 24px; font-weight: 700; letter-spacing: -.01em; }
 .ga-lede { max-width: var(--rs-measure); margin: -4px 0 12px; color: var(--rs-muted); font-size: 17px; line-height: var(--rs-leading); }
 
-/* Neon Harvest: fit the board under the sticky 52px Reader top bar on short landscape screens (say 1366x600),
-   so every spot the player can reach shows at once. The width follows the height left, which keeps 16:10.
-   Phones (≤640px) have a static top bar and keep the full-width board. */
+/* Neon Harvest: fit the timer HUD and the whole board under the sticky 52px Reader top bar on short landscape
+   screens (1366x600, 844x390), so every spot the player can reach shows with the timer. The board width follows
+   the height left: 100svh minus 64px (scroll-padding-top: bar + gap), 38px (HUD) and 8px of air = 110px, which
+   keeps 16:10; min-height is dropped here so very short screens still fit. Phones (≤640px) have a static top
+   bar and keep the full-width board. */
 @media (min-width: 641px) {
   .neon-board {
-    width: min(100%, calc((100vh - 52px - 24px) * 16 / 10));
-    width: min(100%, calc((100svh - 52px - 24px) * 16 / 10));
+    width: min(100%, calc((100vh - 110px) * 16 / 10));
+    width: min(100%, calc((100svh - 110px) * 16 / 10));
+    min-height: 0;
     margin-inline: auto;
   }
 }

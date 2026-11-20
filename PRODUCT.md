@@ -87,3 +87,11 @@ flagship pass (2026-08-04). First of the two "blank-slate" Tier A repositories
 to be redesigned — see the
 [Phase 1 audit](https://claude.ai/code/artifact/840ec7d5-df97-4bf4-9fad-67155c3b1d50)
 for how it was picked.
+
+## Known limits
+
+- Shared Reader shell, not changed here (2026-11-20 review): with text-only zoom at 200% (Firefox, ~768px) the
+  sticky top bar wraps to two lines but `scroll-padding-top` stays 64px, so "All games" can land a heading
+  partly under the bar; and in the light theme, when the 92%-opaque bar scrolls over the dark Neon Harvest
+  board, its muted tagline drops to about 4.33:1. Both belong to `app/reader-shell.css` and are fixed at
+  the source shell, then synced.
