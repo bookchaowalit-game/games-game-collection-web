@@ -95,3 +95,10 @@ for how it was picked.
   partly under the bar; and in the light theme, when the 92%-opaque bar scrolls over the dark Neon Harvest
   board, its muted tagline drops to about 4.33:1. Both belong to `app/reader-shell.css` and are fixed at
   the source shell, then synced.
+- Neon Harvest on short landscape screens (say 1366x600 or 844x390): the board keeps its full column width
+  and 20rem floor, so the timer and the whole board do not fit under the sticky bar at once and the page
+  scrolls. Shrinking the board (tried in cf58270/908d726, reverted) broke the game: positions and hit boxes
+  are percentages of the board while the sprites are rem-sized, so sprites overlapped before a hit counted
+  and clipped at the edges. A real fix sizes the sprites from the board (or makes the hit boxes
+  aspect-aware) first. Pickups stay generous by design: a spark is collected a little before the sprites
+  touch.
